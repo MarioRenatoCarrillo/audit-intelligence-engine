@@ -1,0 +1,10 @@
+services:
+  audit-engine:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./output:/app/output
+      - ./data:/app/data
+    command: sh -c "audit-engine all && uvicorn audit_engine.api:app --host 0.0.0.0 --port 8000"
+

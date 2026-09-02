@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "audit-intelligence-engine"
+version = "0.1.0"
+description = "Explainable multi-ERP audit analytics using synthetic data"
+requires-python = ">=3.11"
+dependencies = [
+  "numpy>=1.26",
+  "pandas>=2.1",
+  "scikit-learn>=1.4",
+  "PyYAML>=6.0",
+  "fastapi>=0.110",
+  "uvicorn>=0.27"
+]
+
+[project.scripts]
+audit-engine = "audit_engine.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+

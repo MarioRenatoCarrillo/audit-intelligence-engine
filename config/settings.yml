@@ -1,0 +1,16 @@
+seed: 24699
+vendors: 600
+invoices: 20000
+months: 24
+sources: [AGRIS, CMIS, JDE, SAP]
+companies: [CHS01, CHS02, CHS03, CHS04, CHS05]
+approval_thresholds: [5000, 10000, 25000]
+isolation_forest:
+  contamination: 0.025
+  estimators: 250
+risk_weights:
+  rule: 0.40
+  anomaly: 0.30
+  materiality: 0.15
+  control: 0.15
+
