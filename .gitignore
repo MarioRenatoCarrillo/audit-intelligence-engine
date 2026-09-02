@@ -6,4 +6,4 @@ data/synthetic/*.csv
 output/*.db
 output/*.json
 .DS_Store
-
+*.egg-info/
