@@ -61,16 +61,25 @@ def generate(settings: dict, output_dir: Path) -> dict[str, pd.DataFrame]:
         "scenario_type": "NORMAL",
     })
 
+
     # Inject exact duplicates.
-    dup_src = rng.choice(invoices.index[: n - 50], 45, replace=False)
-    dup_tgt = invoices.index[-45:]
+    dup_count = max(1, round(n * 45 / 20_000))
+    dup_src = rng.choice(
+        invoices.index[: n - dup_count],
+        dup_count,
+        replace=False,
+    )
+    dup_tgt = invoices.index[-dup_count:]
     for src, tgt in zip(dup_src, dup_tgt):
         keep_id = invoices.at[tgt, "invoice_id"]
         invoices.loc[tgt] = invoices.loc[src]
         invoices.at[tgt, "invoice_id"] = keep_id
-        invoices.at[tgt, "payment_date"] = invoices.at[src, "payment_date"] + pd.Timedelta(days=2)
+        invoices.at[tgt, "payment_date"] = (
+            invoices.at[src, "payment_date"] + pd.Timedelta(days=2)
+        )
         invoices.at[tgt, "is_injected_anomaly"] = 1
         invoices.at[tgt, "scenario_type"] = "EXACT_DUPLICATE"
+
 
     # Split invoices just below approval limits.
     split_rows = rng.choice(invoices.index[100:-100], 45, replace=False)

@@ -1,6 +1,6 @@
 seed: 24699
-vendors: 600
-invoices: 20000
+vendors: 100
+invoices: 2500
 months: 24
 sources: [AGRIS, CMIS, JDE, SAP]
 companies: [CHS01, CHS02, CHS03, CHS04, CHS05]
