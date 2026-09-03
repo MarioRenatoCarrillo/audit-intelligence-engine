@@ -4,6 +4,15 @@ A production-oriented, synthetic-data portfolio project for multi-ERP audit anal
 
 > Results are risk indicators requiring auditor review. They are not determinations of fraud.
 
+## Live demo
+
+Explore the stakeholder-focused audit dashboard:
+
+**[Open the Audit Intelligence Engine Dashboard](https://mariorenatocarrillo.github.io/audit-intelligence-engine/)**
+
+The demonstration uses entirely synthetic data and fictionalized ERP structures. It does not contain CHS data or reproduce proprietary CHS schemas.
+
+
 ## What the MVP includes
 
 - Reproducible synthetic data with separately stored ground-truth scenarios
